@@ -12,25 +12,33 @@ export default function MainList() {
 
     const dispatch = useDispatch()
 
-    const handleClick = () => {
+    const openDashboard = () => {
+        dispatch(setScene(scenes.DASHBOARD))
+    }
+
+    const openAddExpense = () => {
         dispatch(setScene(scenes.ADD_EXPENSE))
+    }
+
+    const listExpences = () => {
+        dispatch(setScene(scenes.ALL_EXPENSE))
     }
 
     return (
         <div>
-            <ListItem button onClick={handleClick}>
+            <ListItem button onClick={openDashboard}>
                 <ListItemIcon>
                     <DashboardIcon />
                 </ListItemIcon>
                 <ListItemText primary="Dashboard"/>
             </ListItem>
-            <ListItem button>
+            <ListItem button onClick={openAddExpense}>
                 <ListItemIcon>
                     <AddBoxIcon />
                 </ListItemIcon>
                 <ListItemText primary="Add Expense" />
             </ListItem>
-            <ListItem button>
+            <ListItem button onClick={listExpences}>
                 <ListItemIcon>
                     <MonetizationOnIcon />
                 </ListItemIcon>
